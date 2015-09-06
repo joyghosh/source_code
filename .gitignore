@@ -1,0 +1,12 @@
+#compiled files
+*.class
+
+#IDE specific folders
+.settings/*
+
+#IDE specific files
+.classpath
+.project
+
+#folders
+bin/*
