@@ -1,5 +1,12 @@
 package com.iq.housing;
 
+/***
+ * 
+ * @author Joy Ghosh
+ * 
+ * Which building can see the beach?
+ */
+
 public class BeachTheory{
     
     public static void main(String []args){
