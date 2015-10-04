@@ -1,4 +1,4 @@
-package com.joy.array;
+package com.iq.array;
 
 //Program to find the max. sum of a contiguous sub-array using Kadane's algorithm. 
 public class MaxSumSubArray {
