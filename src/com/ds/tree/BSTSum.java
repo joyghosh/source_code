@@ -1,4 +1,4 @@
-package com.iq.tree;
+package com.ds.tree;
 
 public class BSTSum {
 	
