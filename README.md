@@ -1,1 +1,2 @@
-This is a source code repository for solutions of common programming problems. These are usually asked from a candidate interviewing at a typical software firm or organization, hiring for the role of software developer or software engineer.
+# source_code
+Code solution repository for common programming problems. It's a WIP(work in progress).
