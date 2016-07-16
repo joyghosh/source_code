@@ -1,13 +1,12 @@
 package datastructures.linkedlist;
 
-import common.Node;
 import common.Reference;
 
 //Mergesort of singly linked list.
 public class MergeSort{
        
       //merge sort.
-      private static void mergeSort(Reference<Node> headref){
+      private void mergeSort(Reference<Node> headref){
               
               //base case. if headref is null or has just one element.
               if(headref.get()==null || headref.get().next==null)
@@ -26,7 +25,7 @@ public class MergeSort{
       }
       
       //split a list into two halves and pass their head values as reference parameters.
-      private static void frontBackSplit(Reference<Node> source, Reference<Node> front, 
+      private void frontBackSplit(Reference<Node> source, Reference<Node> front, 
     		  							  Reference<Node> back){
               
               //base case. len < 2 case.
@@ -55,7 +54,7 @@ public class MergeSort{
       }
       
       //merge two sorted lists.
-      private static Node sortedMerge(Reference<Node> a, Reference<Node> b){
+      private Node sortedMerge(Reference<Node> a, Reference<Node> b){
           
           //base case. either of the list is empty.
           if(a.get() == null){
@@ -78,7 +77,7 @@ public class MergeSort{
       }
       
       //utility methods.
-      private static void printList(Node head){
+      private void printList(Node head){
           
           Node node = head;
           while(node!=null){
@@ -88,7 +87,7 @@ public class MergeSort{
       }
       
       //push a new node at the head of the singly linked list.
-      private static Node pushNode(Node head, int data){
+      private Node pushNode(Node head, int data){
               Node new_node = new Node();
               new_node.data = data;
               new_node.next = head;
@@ -105,17 +104,41 @@ public class MergeSort{
 
           //create a single linked list.
           
-          Reference<Node> list1 = new Reference<Node>(new Node());
-      
-          list1.set(pushNode(list1.get(), 5));
-          list1.set(pushNode(list1.get(), 10));
-          list1.set(pushNode(list1.get(), 3));
-          list1.set(pushNode(list1.get(), 30));
-          list1.set(pushNode(list1.get(), 301));
+          Reference<Node> list1 = new Reference<Node>(new MergeSort.Node());
           
-          printList(list1.get());
-          mergeSort(list1);
+          MergeSort ms = new MergeSort();
+          
+          list1.set(ms.pushNode(list1.get(), 5));
+          list1.set(ms.pushNode(list1.get(), 10));
+          list1.set(ms.pushNode(list1.get(), 3));
+          list1.set(ms.pushNode(list1.get(), 30));
+          list1.set(ms.pushNode(list1.get(), 301));
+          
+          ms.printList(list1.get());
+          ms.mergeSort(list1);
           System.out.println();
-          printList(list1.get());    
+          ms.printList(list1.get());    
       }
+      
+      static class Node{
+    		
+    		public int data;
+    	    public Node next;
+    		
+    	    public int getData() {
+    			return data;
+    		}
+    		
+    	    public void setData(int data) {
+    			this.data = data;
+    		}
+    		
+    	    public Node getNext() {
+    			return next;
+    		}
+    		
+    	    public void setNext(Node next) {
+    			this.next = next;
+    		} 
+    	}
 }

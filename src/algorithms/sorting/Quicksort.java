@@ -1,5 +1,10 @@
 package algorithms.sorting;
 
+/**
+ * Quicksort implementation. (recursive version)
+ * @author Joy Ghosh
+ *
+ */
 public class Quicksort {
 
 	public static void main(String[] args) {
