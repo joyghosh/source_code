@@ -1,4 +1,4 @@
-package datastructures.array;
+package datastructures.arrays;
 
 public class ReverseString {
 

@@ -1,4 +1,4 @@
-package datastructures.array;
+package datastructures.arrays;
 
 //Program to find the max. sum of a contiguous sub-array using Kadane's algorithm. 
 public class MaxSumSubArray {
