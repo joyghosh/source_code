@@ -30,6 +30,15 @@ public class NumberOfWays {
 		return noOfWays(i-1, j) + noOfWays(i, j-1);
 	}
 	
+	/**
+	 * [Dynamic programming approach]
+	 * Time complexity: O(m*n)
+	 * Aux. Space complexity:O(m*n)
+	 *   
+	 * @param m
+	 * @param n
+	 * @return
+	 */
 	public static int noOfWaysDP(int m, int n){
 		int[][] ways = new int[m][n];
 		
