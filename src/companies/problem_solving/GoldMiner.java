@@ -14,6 +14,8 @@ public class GoldMiner {
 	}
 	
 	//Get the max gold value.
+	//time complexity: O(3^N).
+	//Space complexity: O(3^N * (M*N)) 
 	private static int maxGoldValue(int[][] matrix, int M, int N){
 		//Empty matrix.
 		if(M==0 || N==0) return 0;
@@ -71,5 +73,33 @@ public class GoldMiner {
 		return matrix[row][col] + Math.max(maxGoldValueUtil(matrix, M, N, row-1, col+1), 
 									Math.max(maxGoldValueUtil(matrix, M, N, row, col+1), 
 										maxGoldValueUtil(matrix, M, N, row+1, col+1)));
+	}
+	
+	//Using DP approach.
+	private static int maxGoldValueOptimised(int[][] matrix, int M, int N){
+		//Empty matrix.
+		if(M==0 || N==0) return 0;
+		
+		//For single row matrix.
+		if(M==1){
+			int max = Integer.MIN_VALUE;
+			for(int i=0;i<N;i++){
+				if(matrix[0][i] > max) max = matrix[0][i];
+			}
+			return max;
+		}
+		
+		//For single column matrix.
+		if(N==1){
+			int max = Integer.MIN_VALUE;
+			for(int i=0;i<M;i++){
+				if(matrix[i][0] > max) max = matrix[i][0];
+			}
+			return max;
+		}
+		
+		//For the rest of the cases.
+		
+		return -1;
 	}
 }	
