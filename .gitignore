@@ -11,3 +11,8 @@
 #folders
 bin/*
 /bin/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+source_code.iml
