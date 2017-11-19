@@ -13,23 +13,63 @@ package algorithms.searching;
 public class SearchRotatedArray {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-//	public static int findInRotated(int[] arr, int i){
-//		
-//	}
-	
-	public static int searchPivot(int[] arr, int l, int r){
-		if(l<r){
-			int mid = l + (r-l)/2;
-			if(arr[mid] > arr[mid+1]){
-				return mid;
-			}else if(arr[mid] < arr[mid-1]){
-				return mid-1;
-			}
+		int[] arr = {30, 40, 50, 10, 20};
+		int key = 10;
+		int index = findElementInPivotedArray(arr, key);
+		if(index !=-1){
+			System.out.printf("Index of key %d is %d.",key, findElementInPivotedArray(arr, key));
+		}else{
+			System.out.println("Not found.");
 		}
-		return -1;
+	}
+	
+	public static int findElementInPivotedArray(int[] arr, int key){
+		int n = arr.length;
+		int pivot = searchPivot(arr, 0, n-1);
+		if(pivot == -1)
+			return binarySearch(arr, 0, n-1, key);
+		if(arr[pivot] == key)
+			return pivot;
+		if(arr[0] <= key){
+			return binarySearch(arr, 0, pivot-1, key);
+		}
+		
+		return binarySearch(arr, pivot+1, n-1, key);
+	}
+	
+	//Find the pivot index in the rotated array.
+	public static int searchPivot(int[] arr, int low, int high){
+		
+		if(low > high) return -1;
+		if(low==high) return low;
+		
+		int mid = low + (high-low)/2;  //Avoid memory overflow. (low+high)/2
+		
+		if(mid < high && arr[mid] > arr[mid+1]){
+			return mid;
+		}
+		
+		if(mid > low && arr[mid] < arr[mid-1]){
+			return mid-1; 
+		}
+		
+		if(arr[mid] <= arr[low]){
+			return searchPivot(arr, low, mid-1);
+		}
+		return searchPivot(arr, mid+1, high);
+	}
+	
+	//Normal binary search.
+	public static int binarySearch(int[] arr, int low, int high, int key){
+		
+		if(low>high) return -1;
+		int mid = low + (high-low)/2;
+		if(arr[mid] == key){
+			return mid;
+		}else if(arr[mid]<key){
+			return binarySearch(arr, mid+1, high, key);
+		}
+		
+		return binarySearch(arr, low, mid-1, key);
 	}
 }
